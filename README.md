@@ -16,7 +16,8 @@ is later in this question):
 > The system cannot find the file specified.
 
 I created [a minimal project that reproduces the problem][repro]. The script
-_build.cmd_ simply executes MSBuild.
+_build.cmd_ simply executes MSBuild. When I run _build.cmd_ from my
+workstation, the build succeeds. It only fails on the build server.
 
 [codegen]: https://msdn.microsoft.com/en-us/library/ee847423.aspx
 [repro]: https://github.com/jennings/so-46856701
