@@ -1,8 +1,7 @@
-# T4 Template Preprocssing on build server
+# FileNotFoundException when preprocessing T4 templates from build server
 
-This is a reproduction for [Stack Overflow question 46856701][so].
-
-[so]: https://stackoverflow.com/q/46856701
+This is a reproduction for [Stack Overflow question
+46856701](https://stackoverflow.com/q/46856701).
 
 I'm trying to follow the instructions in Microsoft's document [Code Generation
 in a Build Process][codegen] to rebuild T4 templates on our build server. When
@@ -22,10 +21,10 @@ _build.cmd_ simply executes MSBuild.
 [codegen]: https://msdn.microsoft.com/en-us/library/ee847423.aspx
 [repro]: https://github.com/jennings/so-46856701
 
-### Things I've tried:
+## Things I've tried:
 
-* Copied the MSBuild and Visual Studio assemblies specified by the _Code
-  Generation_ document.
+* Copied the MSBuild and Visual Studio assemblies to the build server, as
+  specified by the _Code Generation_ document.
 
 * Added the Visual Studio assemblies to the GAC.
 
@@ -35,6 +34,10 @@ _build.cmd_ simply executes MSBuild.
 
 * Set `HKLM\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\14.0!InstallDir` to
   `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\ `
+
+I'm trying to avoid installing Visual Studio 2015, because that's a pretty
+large dependency to add to our build server, and the Microsoft documentation
+explicitly says this should be possible.
 
 
 ### Copied assemblies to C:\Program Files (x86)
@@ -65,6 +68,7 @@ the GAC on my workstation I guessed maybe that was required, so I tried using
 the same.
 
 [gacmanager]: https://github.com/dwmkerr/gacmanager
+
 
 ## The full MSBuild output
 
